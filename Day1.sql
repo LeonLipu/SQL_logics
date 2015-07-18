@@ -60,6 +60,18 @@ show index from tb1;
 
 drop index ind4 on tb1;
 
+# creating strored procedure 
+
+drop procedure if exists hello;
+delimiter //
+
+
+create procedure hello(in ss varchar(222))
+begin 
+select * from tb1 where name =ss;
+end //
+call hello("lipu2");
+
 
 
 
