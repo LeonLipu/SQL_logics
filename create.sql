@@ -17,3 +17,8 @@ primary_key(personid)
 alter table tablename add columnname datatype ;
 //example
 alter table person add surname varchar(30);
+
+//removing database
+drop database databasename ;
+drop table //it will delete table
+truncate table //it will delete data 
