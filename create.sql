@@ -21,4 +21,15 @@ alter table person add surname varchar(30);
 //removing database
 drop database databasename ;
 drop table //it will delete table
-truncate table //it will delete data 
+truncate table //it will delete data
+
+
+select 	version();
+show tables;
+select * from class ;
+desc class;
+select ifnull(class_name,"something") as id  from class ;
+select current_date();
+
+#native command to export the table accessible
+mysql -u username -xml -e 'select * from table ' > outputfile.xml
