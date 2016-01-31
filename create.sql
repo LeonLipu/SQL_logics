@@ -33,3 +33,8 @@ select current_date();
 
 #native command to export the table accessible
 mysql -u username -xml -e 'select * from table ' > outputfile.xml
+
+
+drop table tablename ; //delete schema and data
+truncate table tablename ;// delete only data not schema
+drop database databasename ; //delete all data with sechema
