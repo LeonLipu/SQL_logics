@@ -41,3 +41,8 @@ drop database databasename ; //delete all data with sechema
 
 
 grant select ,insert ,update on dbname to brahma@localhost
+
+// how to add foreign key
+
+alter table tablename add colname int not_null ;
+alter table tablename add contraint fkref foreign key (colname) reference grade(id);
