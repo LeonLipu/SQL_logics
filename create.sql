@@ -31,6 +31,7 @@ desc class;
 select ifnull(class_name,"something") as id  from class ;
 select current_date();
 
+show columns from tablename ;
 #native command to export the table accessible
 mysql -u username -xml -e 'select * from table ' > outputfile.xml
 
