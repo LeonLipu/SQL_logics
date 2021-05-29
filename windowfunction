@@ -20,3 +20,29 @@ select 'R5' role, 'M2' report from dual
 )
 
 select sys_connect_by_path(role,'/') path ,role,report from a start with role='R1' connect by prior report=role
+
+PATH	ROLE	REPORT
+/R1	R1	M1
+/R1/M1	M1	CEO
+/R1/M1/CEO	CEO	None
+
+
+with k as (select 'w1' as word,'s1,s2,s3' as syn from dual union all select 'w2' as word , 'e1,e2,e3' as syn from dual  )
+
+select word,regexp_substr(syn,'[^,]+',1,level) from k connect by regexp_instr(syn,'[^,]+',1,level)>0  and prior sys_guid() is not null and prior word=word 
+
+
+
+
+WORD	REGEXP_SUBSTR(SYN,'[^,]+',1,LEVEL)
+w1	s1
+w1	s2
+w1	s3
+w2	e1
+w2	e2
+w2	e3
+
+
+
+
+
