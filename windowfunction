@@ -1,1 +1,22 @@
 
+with a as (
+    
+select 'CEO' role, 'None' report from dual
+union all 
+select 'M1' role, 'CEO' report from dual
+union all 
+select 'M2' role, 'CEO' report from dual
+union all 
+select 'R1' role, 'M1' report from dual
+union all 
+select 'R2' role, 'M1' report from dual
+union all 
+select 'R3' role, 'M2' report from dual
+union all 
+select 'R4' role, 'M2' report from dual
+union all 
+select 'R5' role, 'M2' report from dual
+
+)
+
+select sys_connect_by_path(role,'/') path ,role,report from a start with role='R1' connect by prior report=role
